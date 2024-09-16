@@ -8,8 +8,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
-import javax.swing.border.Border;
-
 import java.awt.Color;
 import java.util.logging.*;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -48,7 +46,7 @@ public class GUI extends JFrame {
 
     private void setMenuBar() {}
 
-    
+
     private void setLabel() {
         JLabel label = new JLabel("Hello");
         label.setOpaque(true);
