@@ -7,6 +7,9 @@ package com.somnath.calc;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.util.logging.*;
@@ -44,12 +47,26 @@ public class GUI extends JFrame {
         }
     }
 
-    private void setMenuBar() {}
+    private void setMenuBar() {
+        JMenuBar bar = new JMenuBar();
+
+        JMenu helpMenu = new JMenu("Help");
+        JMenuItem about = new JMenuItem("About");
+        JMenuItem help = new JMenuItem("help");
+
+        helpMenu.add(about);
+        helpMenu.addSeparator();
+        helpMenu.add(help);
+
+        bar.add(helpMenu);
+
+        this.setJMenuBar(bar);
+    }
 
 
     private void setLabel() {
         JLabel label = new JLabel("Hello");
-        label.setOpaque(true);
+        label.setOpaque(true); // this line allows to see background color
         label.setBackground(new Color(223, 225, 230));
         label.setBorder(BorderFactory.createLineBorder(new Color(127, 149, 199)));
         label.setBounds(0, 0, getWidth(), 150);
