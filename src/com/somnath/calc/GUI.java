@@ -5,13 +5,17 @@
 package com.somnath.calc;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.util.LinkedList;
 import java.util.logging.*;
 import com.formdev.flatlaf.FlatLightLaf;
 
@@ -65,7 +69,7 @@ public class GUI extends JFrame {
 
 
     private void setLabel() {
-        JLabel label = new JLabel("Hello");
+        JLabel label = new JLabel();
         label.setOpaque(true); // this line allows to see background color
         label.setBackground(new Color(223, 225, 230));
         label.setBorder(BorderFactory.createLineBorder(new Color(127, 149, 199)));
@@ -75,6 +79,29 @@ public class GUI extends JFrame {
 
 
     }
-    private void setButtons() {}
+
+
+    private void createNumberButtons(JPanel panel) {
+        LinkedList<JButton> buttons = new LinkedList<>();
+
+        for (int i = 1; i < 10; i++) {
+            buttons.add(new JButton(String.format("%d", i)));
+        }
+
+        for (JButton button : buttons) {
+            panel.add(button);
+        }
+
+    }
+
+    private void setButtons() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 3));
+        // label highet before this panel is 150
+        panel.setBounds(0, 150, 400, getHeight()-230);
+        this.createNumberButtons(panel);
+        this.add(panel);
+
+    }
 
 }
