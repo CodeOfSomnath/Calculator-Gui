@@ -38,7 +38,7 @@ public class GUI extends JFrame {
         
         // custom functions
         setMenuBar();
-        setLabel();
+        // setLabel(); // for debug only
         setButtons();
 
     }
@@ -84,7 +84,7 @@ public class GUI extends JFrame {
     private void createNumberButtons(JPanel panel) {
         LinkedList<JButton> buttons = new LinkedList<>();
 
-        for (int i = 1; i < 10; i++) {
+        for (int i = 9; i > 0; i--) {
             buttons.add(new JButton(String.format("%d", i)));
         }
 
@@ -95,12 +95,27 @@ public class GUI extends JFrame {
     }
 
     private void setButtons() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 3));
+       
+        JPanel numberPlate = new JPanel();
+        numberPlate.setLayout(new GridLayout(4, 3));
         // label highet before this panel is 150
-        panel.setBounds(0, 150, 400, getHeight()-230);
-        this.createNumberButtons(panel);
-        this.add(panel);
+        numberPlate.setBounds(0, 150, 400, getHeight()-230);
+        this.createNumberButtons(numberPlate);
+
+        //adding more buttons and custom properties
+        JButton powerButton = new JButton("10^");
+        numberPlate.add(powerButton);
+
+        JButton zeroButton = new JButton("0");
+        numberPlate.add(zeroButton);
+
+        JButton dotButton = new JButton(".");
+        numberPlate.add(dotButton);
+
+        this.add(numberPlate);
+
+        JPanel oprationPanel = new JPanel();
+        
 
     }
 
